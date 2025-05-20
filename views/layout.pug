@@ -1,0 +1,33 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title= title ? `${title} | PugBlog` : 'PugBlog'
+    link(rel="stylesheet", href="/css/style.css")
+  body
+    header.header
+      .container
+        a.logo(href="/") PugBlog
+        nav.navbar
+          ul.nav-menu
+            li.nav-item
+              a.nav-link(href="/") Home
+            li.nav-item
+              a.nav-link(href="/new") Create Post
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle(href="#") Explore
+              .dropdown-menu
+                a.dropdown-item(href="/explore/nodejs") NodeJS
+                a.dropdown-item(href="/explore/pug") Pug
+                a.dropdown-item(href="/explore/webdev") WebDev
+                a.dropdown-item(href="/explore/css") CSS
+          form.search-form(action="/search", method="GET")
+            input.search-input(type="text", name="q", placeholder="Search blogs...")
+            button.search-button(type="submit") Search
+    main.main-content
+      .container
+        block content
+    footer.footer
+      .container
+        p &copy; 2025 PugBlog. All rights reserved.
