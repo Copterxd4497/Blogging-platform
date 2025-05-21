@@ -1,7 +1,7 @@
 const express = require("express");
 
 const path = require("path");
-const homepateRoute = require('./routes/homepageRoute');
+const homepageRoute = require("./routes/homepageRoute");
 
 const app = express();
 
@@ -12,12 +12,6 @@ app.set("views", "./views");
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// Path to your favicon
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
-
-// Define a route
-app.get("/", (req, res) => {
-  res.render("home", { name: "Copter" });
-});
+app.use("/", homepageRoute);
 
 module.exports = app;
