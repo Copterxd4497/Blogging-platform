@@ -7,7 +7,7 @@ const app = express();
 
 // Set Pug as the view engine
 app.set("view engine", "pug");
-app.set("views", "./views");
+app.set("views", path.join(__dirname, "views"));
 
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
