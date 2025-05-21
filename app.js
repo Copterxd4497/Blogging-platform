@@ -1,6 +1,8 @@
 const express = require("express");
 
 const path = require("path");
+const homepateRoute = require('./routes/homepageRoute');
+
 const app = express();
 
 // Set Pug as the view engine
