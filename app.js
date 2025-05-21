@@ -14,9 +14,6 @@ app.set("views", path.join(__dirname, "views"));
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
-// Path to your favicon
-app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
-
 app.use("/", textRouter);
 
 module.exports = app;
