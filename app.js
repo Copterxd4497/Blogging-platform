@@ -1,6 +1,8 @@
 const express = require("express");
 
 const path = require("path");
+const homepateRoute = require('./routes/homepageRoute');
+
 const app = express();
 
 // Set Pug as the view engine
@@ -14,9 +16,6 @@ app.use(express.static(path.join(__dirname, "public")));
 // app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
 
 
-// Define a route
-app.get('/', (req, res) => {
-  res.render('home', { name: 'Copter' });
-});
+
 
 module.exports = app;
