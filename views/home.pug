@@ -1,0 +1,24 @@
+//- home.pug - Home page template
+extends layout
+
+block content
+  h1.page-title Welcome to PugBlog
+  p.intro-text A simple blogging platform built with Express and Pug templates
+  
+  .featured-blogs
+    h2 Latest Blog Posts
+
+    if typeof blogs !== 'undefined' && blogs.length
+      .blog-grid
+        each blog in blogs
+          .blog-card
+            h3.blog-title
+              a(href=`/blog/${blog.id}`)= blog.title
+            p.blog-meta Posted by #{blog.author} on #{blog.date}
+            p.blog-excerpt= blog.content.substring(0, 100) + '...'
+            .blog-tags
+              if blog.tags
+                each tag in blog.tags
+                  a.tag(href=`/explore/${tag}`)= tag
+    else
+      p No blog posts available.

@@ -1,19 +1,21 @@
 const express = require("express");
 
-const AppError = require("./utils/appError");
 const path = require("path");
-const favicon = require("serve-favicon");
-
-const textRouter = require("./routes/textRouter");
-
 const app = express();
 
+// Set Pug as the view engine
 app.set("view engine", "pug");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", "./views");
 
 // Serving static files
 app.use(express.static(path.join(__dirname, "public")));
 
-app.use("/", textRouter);
+// Path to your favicon
+app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
+// Define a route
+app.get("/", (req, res) => {
+  res.render("home", { name: "Copter" });
+});
 
 module.exports = app;
