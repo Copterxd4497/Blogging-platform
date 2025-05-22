@@ -2,6 +2,7 @@ const express = require("express");
 
 const path = require("path");
 const homepageRoute = require("./routes/homepageRoute");
+const createBlogRoute = require("./routes/createPageRoute");
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.set("views", path.join(__dirname, "views"));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", homepageRoute);
+app.use("/", createBlogRoute);
 
 module.exports = app;
