@@ -1,0 +1,20 @@
+//- search.pug - Search results template
+extends layout
+
+block content
+  h1.page-title Search Results for "#{message}"
+  
+  if blogs && blogs.length > 0
+    p.results-count Found #{blogs.length} result(s)
+    .blog-grid
+      each blog in blogs
+        .blog-card
+          h3.blog-title
+            a(href=`/blog/${blog.id}`)= blog.title
+          p.blog-meta Posted by #{blog.author} on #{blog.date}
+          p.blog-excerpt= blog.content.substring(0, 100) + '...'
+          .blog-tags
+            each tag in blog.tags
+              a.tag(href=`/explore/${tag}`)= tag
+  else
+    p.no-results No blogs found matching #{message}

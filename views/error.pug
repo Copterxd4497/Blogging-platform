@@ -1,0 +1,8 @@
+//- error.pug - Error page template
+extends layout
+
+block content
+  .error-container
+    h1.error-title Oops! Something went wrong
+    p.error-message= message || 'An error occurred'
+    a.button(href="/") Back to Home
