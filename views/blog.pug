@@ -1,0 +1,15 @@
+//- blog.pug - Single blog post template
+extends layout
+
+block content
+  article.blog-post
+    h1.blog-title= blog.title
+    .blog-meta
+      p Posted by #{blog.author} on #{blog.date}
+      .blog-tags
+        each tag in blog.tags
+          a.tag(href=`/explore/${tag}`)= tag
+    .blog-content
+      p= blog.content
+    .blog-actions
+      a.button(href="/") Back to Home
