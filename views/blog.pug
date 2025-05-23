@@ -7,8 +7,9 @@ block content
     .blog-meta
       p Posted by #{blog.author} on #{blog.date}
       .blog-tags
-        each tag in blog.tags
-          a.tag(href=`/explore/${tag}`)= tag
+        if blog.tags
+          each tag in blog.tags
+            a.tag(href=`/explore/${tag}`)= tag
     .blog-content
       p= blog.content
     .blog-actions
