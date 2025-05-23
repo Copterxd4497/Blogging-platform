@@ -5,7 +5,7 @@ block content
   h1.page-title Create New Blog Post
   p.form-note * All fields marked with an asterisk are required.
   
-  form.blog-form(action="/new", method="POST")
+  form.blog-form
     .form-group
       label(for="title") Title *
       input#title.form-control(type="text", name="title", required)
@@ -18,10 +18,13 @@ block content
       label(for="content") Content *
       textarea#content.form-control(name="content", rows="10", required)
     
-    .form-group
-      label(for="tags") Tags (comma separated)
-      input#tags.form-control(type="text", name="tags", placeholder="e.g. nodejs, pug, webdev")
+    //- .form-group
+    //-   label(for="tags") Tags (comma separated)
+    //-   input#tags.form-control(type="text", name="tags", placeholder="e.g. nodejs, pug, webdev")
     
     .form-actions
       button.button.primary(type="submit") Publish Post
       a.button.secondary(href="/") Cancel
+
+block scripts
+  script(src='/js/new.js', defer)
