@@ -4,6 +4,7 @@ const Blog = require("./../models/BlogModel");
 exports.homepage = async (req, res) => {
   try {
     const blogs = await Blog.find();
+    console.log("add changed file");
     res.status(200).render("home", { blogs });
   } catch (err) {
     res.status(500).render("error", { message: "Failed to load blogs." });
